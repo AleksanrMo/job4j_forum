@@ -1,7 +1,6 @@
 package ru.job4j.forum.model;
 
-import java.util.Calendar;
-import java.util.Objects;
+import java.util.*;
 
 
 public class Post {
@@ -10,6 +9,10 @@ public class Post {
     private String name;
     private String description;
     private Calendar created;
+    private User user;
+    private List<String> list = new ArrayList<>();
+
+
 
     public static Post of(int id, String st, String desc) {
         Post post = new Post();
@@ -17,6 +20,22 @@ public class Post {
         post.id = id;
         post.description = desc;
         return post;
+    }
+
+    public void addComment(String comment) {
+
+       list.add(comment);
+    }
+    public List<String> getAllComments() {
+        return list;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getId() {
@@ -62,5 +81,17 @@ public class Post {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, description, created);
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", created=" + created +
+                ", user=" + user +
+                ", map=" + list +
+                '}';
     }
 }

@@ -10,44 +10,45 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-@Configuration
-@EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
-   protected void configure(HttpSecurity http) throws Exception {
-         http.authorizeRequests()
-             .antMatchers("/login", "/reg")
-                .permitAll()
-                .antMatchers("/**")
-                .hasAnyRole("ADMIN", "USER")
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/")
-                .failureUrl("/login?error=true")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutSuccessUrl("/login?logout=true")
-                .invalidateHttpSession(true)
-                .permitAll()
-                .and()
-                .csrf()
-                .disable();
+//@Configuration
+//@EnableWebSecurity
+//public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    }
-
-    @Bean
-    @Override
-    public UserDetailsService userDetailsService() {
-        UserDetails user =
-                User.withDefaultPasswordEncoder()
-                        .username("user")
-                        .password("user")
-                        .roles("USER")
-                        .build();
-
-        return new InMemoryUserDetailsManager(user);
-    }
-
-}
+//    @Override
+//   protected void configure(HttpSecurity http) throws Exception {
+//         http.authorizeRequests()
+//             .antMatchers("/login", "/reg")
+//                .permitAll()
+//                .antMatchers("/**")
+//                .hasAnyRole("ADMIN", "USER")
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .defaultSuccessUrl("/")
+//                .failureUrl("/login?error=true")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .logoutSuccessUrl("/login?logout=true")
+//                .invalidateHttpSession(true)
+//                .permitAll()
+//                .and()
+//                .csrf()
+//                .disable();
+//
+//    }
+//
+//    @Bean
+//    @Override
+//    public UserDetailsService userDetailsService() {
+//        UserDetails user =
+//                User.withDefaultPasswordEncoder()
+//                        .username("user")
+//                        .password("user")
+//                        .roles("USER")
+//                        .build();
+//
+//        return new InMemoryUserDetailsManager(user);
+//    }
+//
+//}

@@ -42,6 +42,9 @@
                     <c:param name = "empId" value = "${post.id}"/>
                 </c:url>
                 <tr>
+                    <td>
+                        <a href ="<c:url value='/comments?id=${post.id}'/>"><c:out value="${post.name}"/></a>
+                    </td>
                     <td><c:out value="${post.name}"/></td>
 
                     <td><c:out value="${post.description}"/></td>
