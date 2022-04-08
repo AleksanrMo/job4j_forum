@@ -55,4 +55,5 @@ public class ForumControl {
         post.addComment(string);
         return "redirect:comments?id=" + id;
     }
+
 }
