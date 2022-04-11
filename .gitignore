@@ -1,5 +1,8 @@
 *.iml
 target
 .idea
+*.cmd
+mvnw
+*.mvn
 # Project exclude paths
 /out/
