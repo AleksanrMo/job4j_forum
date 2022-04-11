@@ -10,7 +10,7 @@ import ru.job4j.forum.repository.PostRepo;
 @Controller
 public class ForumControl {
 
-    PostRepo postService;
+    private PostRepo postService;
     private int id;
     public ForumControl(PostRepo postService) {
         this.postService = postService;

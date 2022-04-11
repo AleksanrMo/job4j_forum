@@ -10,7 +10,7 @@ import ru.job4j.forum.repository.PostRepo;
 @Controller
 public class IndexControl {
 
-   public PostRepo posts;
+   private PostRepo posts;
 
     @Autowired
     public IndexControl (PostRepo posts) {

@@ -11,7 +11,7 @@ import ru.job4j.forum.repository.UserRepo;
 public class RegControl {
 
 
-    UserRepo userRepo;
+    private UserRepo userRepo;
 
     public RegControl(UserRepo userRepo) {
         this.userRepo = userRepo;
