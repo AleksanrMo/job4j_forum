@@ -1,16 +1,29 @@
 package ru.job4j.forum.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
 import java.util.*;
 
-
+@Entity
+@Table(name = "posts")
 public class Post {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String description;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar created;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private User user;
-    private List<String> list = new ArrayList<>();
+    @OneToMany(mappedBy = "post")
+    private Set<Comment> list = new HashSet<>();
 
 
 
@@ -22,11 +35,20 @@ public class Post {
         return post;
     }
 
-    public void addComment(String comment) {
+    public void addComment(Comment comment) {
 
        list.add(comment);
     }
-    public List<String> getAllComments() {
+
+    public Set<Comment> getList() {
+        return list;
+    }
+
+    public void setList(Set<Comment> list) {
+        this.list = list;
+    }
+
+    public Set<Comment> getAllComments() {
         return list;
     }
 

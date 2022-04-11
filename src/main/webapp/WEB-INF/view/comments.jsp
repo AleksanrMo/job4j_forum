@@ -53,7 +53,11 @@
 
                 <tr>
                     <td>
-                        <c:out value="${comment}"/>
+                        <c:out value="${comment.text}"/>
+
+                    </td>
+                    <td>
+                        <c:out value="${comment.date.time}"/>
                     </td>
                 </tr>
             </c:forEach>

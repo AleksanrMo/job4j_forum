@@ -1,16 +1,13 @@
 package ru.job4j.forum.repository;
 
 
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import ru.job4j.forum.model.Post;
-import ru.job4j.forum.model.User;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-@Service
+//@Repository
 public class PostRepo {
     private final List<Post> posts = new ArrayList<>();
 

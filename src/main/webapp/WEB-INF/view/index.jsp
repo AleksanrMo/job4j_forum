@@ -45,8 +45,6 @@
                     <td>
                         <a href ="<c:url value='/comments?id=${post.id}'/>"><c:out value="${post.name}"/></a>
                     </td>
-                    <td><c:out value="${post.name}"/></td>
-
                     <td><c:out value="${post.description}"/></td>
                     <td><input type="button" value="update" onclick="window.location.href='${updateButton}'"></td>
                 </tr>
